@@ -48,7 +48,9 @@ end
 # Given an array of spicy foods, **return an array of hashes** 
 # sorted by heat level from lowest to highest
 def sort_by_heat(spicy_foods)
-  # your code here
+  spicy_foods.sort_by do |food|
+    food[:heat_level]
+  end
 end
 
 # given an array of spicy foods, output to the terminal ONLY 
@@ -56,11 +58,16 @@ end
 # Buffalo Wings (American) | Heat Level: 🌶🌶🌶
 # HINT: Try to use methods you've already written to solve this!
 def print_spiciest_foods(spicy_foods)
-  # your code here
+  spiciest = spiciest_foods(spicy_foods)
+  print_spicy_foods(spiciest)
 end
 
 # given an array of spicy foods, return an integer representing 
 # the average heat level of all the spicy foods in the array
 def average_heat_level(spicy_foods)
-  # your code here
+  total_heat_level = 0
+  spicy_foods.each do |food|
+    total_heat_level += food[:heat_level]
+  end
+  total_heat_level / spicy_foods.length
 end
